@@ -1,24 +1,25 @@
-{  
-  "name": "dev-mysql",
-  "version": "5.5",
+{
+  "name": "mysql",
+  "product_version": "5.5",
   "sdl_version": "5.5.51",
-  "vendor": "HPE",
-  "volumes": [],
+  "vendor": "mysql",
+  "volumes": [{
+ 		"name": "dev-mysql-volume",
+ 		"size_gb": 1,
+ 		"filesystem": "ext4",
+ 		"shared": false
+ 	}],
   "components": [
     {
       "name": "mysql",
-      "external_name": "mysql",
       "workload_type": "container",
-      "version": "0.0.0",
-      "vendor": "HPE",
-      "image": "mysql:5.5",
+      "version": "5.5.51",
+      "vendor": "mysql",
+      "image": "mysql:5.5.51",
       "min_RAM_mb": 512,
       "min_disk_gb": 1,
       "min_VCPU": 1,
       "platform": "linux-x86_64",
-      "capabilities": [],
-      "affinity": [],
-      "labels": ["mysql"],
       "min_instances": 1,
       "max_instances": 1,
       "service_ports": [
@@ -30,48 +31,13 @@
           "public": false
         }
       ],
-      "volume_mounts": [],
+      "volume_mounts": [{
+ 			"volume_name": "dev-mysql-volume",
+ 			"mountpoint": "/var/lib/mysql"
+ 		}],
       "parameters": [
         {
           "name": "MYSQL_ROOT_PASSWORD"
-        }
-      ]
-    },
-    {
-      "name": "hsm-side-car",
-      "external_name": "mysql-hsm-side-car",
-      "workload_type": "container",
-      "version": "0.0.0",
-      "vendor": "HPE",
-      "image": "docker-registry.helion.space/hcf-ro/csm-dev-mysql:0.0.4",
-      "min_RAM_mb": 50,
-      "min_disk_gb": 1,
-      "min_VCPU": 1,
-      "platform": "linux-x86_64",
-      "capabilities": [],
-      "affinity": [],
-      "labels": ["mysql-csm"],
-      "min_instances": 1,
-      "max_instances": 1,
-      "service_ports": [
-        {
-          "name": "mysql-csm",
-          "protocol": "TCP",
-          "source_port": 8081,
-          "target_port": 8081,
-          "public": true
-        }
-      ],
-      "volume_mounts": [],
-      "parameters": [
-        {
-          "name": "MYSQL_USER"
-        },
-        {
-          "name": "MYSQL_PASS"
-        },
-        {
-          "name": "CSM_API_KEY"
         }
       ]
     }
@@ -82,29 +48,16 @@
       "description": "MySQL root password",
       "example": "changeme",
       "required": true,
-      "secret": false
-    },
-    {
-      "name": "MYSQL_USER",
-      "description": "MySQL user used by the sidecar",
-      "example": "root",
-      "required": true,
       "secret": false,
-      "default": "root"
-    },
-    {
-      "name": "MYSQL_PASS",
-      "description": "MySQL password used by the sidecar",
-      "example": "changeme",
-      "required": true,
-      "secret": false
-    },
-    {
-      "name": "CSM_API_KEY",
-      "description": "API Key used to authenticate consumers of the sidecar API",
-      "example": "my-secret-key",
-      "required": true,
-      "secret": false
+      "generator":
+        {
+          "id": "MYSQL_ROOT_PASSWORD",
+          "generate":
+            {
+              "type": "Password",
+              "characters": "abcdefghijklmnopqrstuvwxyz1234567890"
+            }
+        }
     }
   ]
 }
