@@ -1,7 +1,7 @@
 {  
   "name": "dev-mysql",
   "version": "5.5",
-  “sdl_version”: “5.5.51”,
+  "sdl_version": "5.5.51",
   "vendor": "HPE",
   "volumes": [],
   "components": [
