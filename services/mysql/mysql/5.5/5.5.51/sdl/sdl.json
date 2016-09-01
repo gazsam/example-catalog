@@ -1,6 +1,6 @@
 {
   "name": "dev-mysql",
-  "product_version": "5.5.0",
+  "product_version": "5.5.51",
   "sdl_version": "0.1.223",
   "vendor": "HPE",
   "volumes": [{
