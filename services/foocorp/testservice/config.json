@@ -1,0 +1,10 @@
+{
+  "description": "testservice is a realy dumb service that hits a mysql database",
+  "categories":[
+    "Sample"
+  ],
+  "labels":[
+    "sample"
+  ],
+  "type": "local"
+}
