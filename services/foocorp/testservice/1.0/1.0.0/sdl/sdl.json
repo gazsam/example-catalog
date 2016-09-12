@@ -2,7 +2,7 @@
   "name": "testservice",
   "product_version": "1.0",
   "sdl_version": "1.0.0",
-  "vendor": "HPE",
+  "vendor": "foocorp",
   "volumes": [{
  		"name": "testservice-volume",
  		"size_gb": 1,
