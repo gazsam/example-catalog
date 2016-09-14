@@ -80,9 +80,6 @@
            "name": "NODE_ENV"
          },
          {
-           "name": "APIGEE_REDIS_PASSPHRASE"
-         },
-         {
            "name": "APIGEE_DASHBOARD_URL"
          },
          {
@@ -107,15 +104,6 @@
       "description": "NODE_ENV",
       "default": "NONSECURE",
       "example": "[NONSECURE|TEST]",
-      "data_type": "string",
-      "required": true,
-      "secret": false
-    },
-    {
-      "name": "APIGEE_REDIS_PASSPHRASE",
-      "description": "APIGEE_REDIS_PASSPHRASE",
-      "default": "0xdeadbeef",
-      "example": "",
       "data_type": "string",
       "required": true,
       "secret": false
