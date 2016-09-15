@@ -58,8 +58,8 @@
       "platform": "linux-x86_64",
       "workload_type": "container",
       "capabilities": ["ALL"],
-      "min_instances": 3,
-      "max_instances": 3,
+      "min_instances": 1,
+      "max_instances": 1,
       "service_ports": [
         {
           "name": "frontend",
